@@ -12,14 +12,13 @@ test("Login and get the products count", async ({ page }) => {
     console.log(await products.allTextContents());
 });
 
-test.only("Add to cart ", async ({ page }) => {
+test("Add to cart ", async ({ page }) => {
     await page.goto("https://demoblaze.com/");
     await page.locator("#login2").click();
     await page.locator("//input[@id='loginusername']").fill("intheja");
     await page.locator("//input[@id='loginpassword']").fill("123456");
     await page.locator("//button[@class='btn btn-primary']").nth(2).click();
     await page.locator('a.hrefch').nth(1).click();
-    await page.pause(10000);
     page.on('dialog', async dialog => {
         console.log(dialog.type());
         console.log(dialog.message());
