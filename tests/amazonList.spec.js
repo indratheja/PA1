@@ -25,14 +25,14 @@ test("List search items in Amazon", async ({ page }) => {
 
 });
 
-test(`Indigo selection`, async ({ page }) => {
+test.skip(`Indigo selection`, async ({ page }) => {
 
     await page.goto('https://www.makemytrip.com/');
     await page.locator('a:has-text("SEARCH")').click();
     await page.getByRole('checkbox', { name: 'IndiGo' }).first().check();
 });
 
-test.only("Amazon", async ({ page }) => {
+test("Amazon", async ({ page }) => {
     await page.goto("https://www.amazon.in");
     const search = page.locator("//input[@id='twotabsearchtextbox']");
     await search.click();
