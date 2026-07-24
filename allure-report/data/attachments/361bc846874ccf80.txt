@@ -1,0 +1,29 @@
+Amazon Search Results for "apple":
+[
+  { title: 'Amazon Grocery', price: 'N/A', link: 'N/A' },
+  { title: 'Amazon Grocery', price: 'N/A', link: 'N/A' },
+  { title: 'Apple', price: 'N/A', link: 'N/A' },
+  {
+    title: 'Apple Gift Card - App Store, iTunes, iPhone, iPad, AirPods, MacBook, accessories and more (eGift)',
+    price: 'INR 1,451.13',
+    link: 'N/A'
+  },
+  {
+    title: 'Apple iPhone (Renewed Premium) 16 Pro Max, US Version, 256GB, Desert Titanium - Unlocked',
+    price: 'N/A',
+    link: 'N/A'
+  },
+  { title: 'Apple', price: 'N/A', link: 'N/A' },
+  {
+    title: 'Apple Gift Card - App Store, iTunes, iPhone, iPad, AirPods, MacBook, accessories and more (eGift)',
+    price: 'INR 1,451.13',
+    link: 'N/A'
+  },
+  { title: 'Apple', price: 'N/A', link: 'N/A' },
+  { title: 'Apple', price: 'N/A', link: 'N/A' },
+  {
+    title: 'Apple Gift Card - App Store, iTunes, iPhone, iPad, AirPods, MacBook, accessories and more (eGift)',
+    price: 'INR 1,451.13',
+    link: 'N/A'
+  }
+]

@@ -71,6 +71,10 @@ export class DatePickerPage {
         this.currentMonth = page.locator("//*[@class='ui-datepicker-month']");
         this.currentYear = page.locator("//*[@class='ui-datepicker-year']");
         this.calendarCells = page.locator("//table[@class='ui-datepicker-calendar']//tbody//tr//td");
+        this.textDateInput = page.locator('#txtDate');
+        this.monthSelect = page.locator('.ui-datepicker-month');
+        this.yearSelect = page.locator('.ui-datepicker-year');
+        this.dropdownCalendarCells = page.locator("//table[@class='ui-datepicker-calendar']//tbody//tr//td");
     }
 
     async goto() {
@@ -91,6 +95,19 @@ export class DatePickerPage {
 
         const allDates = await this.calendarCells.all();
         for (const dateCell of allDates) {
+            if ((await dateCell.textContent()) === targetDay) {
+                await dateCell.click();
+                return;
+            }
+        }
+    }
+
+    async selectDateByDropdown(targetDay, targetMonthValue, targetYearValue) {
+        await this.textDateInput.click();
+        await this.monthSelect.selectOption(targetMonthValue);
+        await this.yearSelect.selectOption(targetYearValue);
+
+        for (const dateCell of await this.dropdownCalendarCells.all()) {
             if ((await dateCell.textContent()) === targetDay) {
                 await dateCell.click();
                 return;
