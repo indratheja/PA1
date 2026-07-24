@@ -165,6 +165,27 @@ export class DummyTicketBookingPage {
                 return;
             }
         }
+
+        throw new Error(`Day ${day} was not found in the calendar for ${monthValue}/${yearValue}`);
+    }
+
+    async completeBooking(bookingDetails) {
+        await this.fillPersonalDetails(bookingDetails.firstName, bookingDetails.lastName);
+        await this.selectDatePicker(0, bookingDetails.birthMonth, bookingDetails.birthYear, bookingDetails.birthDay);
+        await this.fillTravelDetails(bookingDetails.fromCity, bookingDetails.toCity);
+        await this.selectDatePicker(1, bookingDetails.travelMonth, bookingDetails.travelYear, bookingDetails.travelDay);
+        await this.chooseReason();
+        await this.fillContactDetails(
+            bookingDetails.email,
+            bookingDetails.country,
+            bookingDetails.address,
+            bookingDetails.flatAddress,
+            bookingDetails.city,
+            bookingDetails.state,
+            bookingDetails.pinCode,
+            bookingDetails.phone,
+        );
+        await this.placeOrder();
     }
 
     async fillTravelDetails(fromCity, toCity) {

@@ -51,9 +51,3 @@ test('demo flight booking', async ({ page }) => {
     await bookingPage.fillContactDetails('indra@hmail.com', 'India', 'miyap', 'yalam', 'hyderabad', 'Telangana', '500049', '9916910404');
     await bookingPage.placeOrder();
 });
-
-
-
-
-
-

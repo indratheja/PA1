@@ -1,0 +1,20 @@
+[
+  {
+    "name": "valid range",
+    "start": "2026-01-10",
+    "end": "2026-07-08",
+    "expectedText": "You selected a range of 179 days."
+  },
+  {
+    "name": "same start and end date",
+    "start": "2026-01-10",
+    "end": "2026-01-10",
+    "expectedText": "You selected a range of 0 days."
+  },
+  {
+    "name": "start date after end date",
+    "start": "2026-07-08",
+    "end": "2026-01-10",
+    "expectedText": "End date must be after start date."
+  }
+]
