@@ -1,0 +1,9 @@
+18
+[
+  'Apple',   'Apple',   'Samsung',
+  'Apple',   'vivo',    'OnePlus',
+  'OnePlus', 'OnePlus', 'Samsung',
+  'OnePlus', 'OnePlus', 'Apple',
+  'Apple',   'Samsung', 'OnePlus',
+  'Apple',   'Samsung', 'Samsung'
+]

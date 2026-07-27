@@ -1,0 +1,7 @@
+Thank you for your purchase!
+Id: 5030033Amount: 0 USDCard Number: 1234 5689 1334 1234Name: indrasDate: 27/6/2026
+Id : 5030033
+Amount : 0
+CC : 1234 5689 1334 1234
+Name : indras
+Date : 27/6/2026

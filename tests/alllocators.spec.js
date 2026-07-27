@@ -3,11 +3,11 @@ import { acceptAllDialogs } from "../utils/createDialog"
 
 test.beforeEach(async ({ page }) => {
     await page.goto("https://testautomationpractice.blogspot.com/");
-    await expect(page).toHaveTitle(/test automation/i);
+    await expect(page).toHaveTitle("Automation Testing Practice");
 })
 
 test('TC1: Verify page title loads correctly', async ({ page }) => {
-    await expect(page).toHaveTitle(/test automation/i);
+    await expect(page).toHaveTitle("Automation Testing Practice");
 })
 
 test('TC2: Verify Sunday checkbox can be checked', async ({ page }) => {
