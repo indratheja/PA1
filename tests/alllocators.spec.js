@@ -1,60 +1,70 @@
 import { expect, test } from "@playwright/test"
 import { acceptAllDialogs } from "../utils/createDialog"
 
-test('SS1', async ({ browser }) => {
-
-    const context = await browser.newContext();
-    const page = await context.newPage();
-    
-    // Navigate to the test page
+test.beforeEach(async ({ page }) => {
     await page.goto("https://testautomationpractice.blogspot.com/");
     await expect(page).toHaveTitle(/test automation/i);
+})
 
-    // Check Sunday checkbox
+test('TC1: Verify page title loads correctly', async ({ page }) => {
+    await expect(page).toHaveTitle(/test automation/i);
+})
+
+test('TC2: Verify Sunday checkbox can be checked', async ({ page }) => {
     const sundayCheckbox = page.getByRole('checkbox', { name: 'Sunday' });
     await sundayCheckbox.check();
     await expect(sundayCheckbox).toBeChecked();
     await page.screenshot({ path: 'Screenshots/indra.png' });
+})
 
-    // Check Monday checkbox
+test('TC3: Verify Monday checkbox can be checked', async ({ page }) => {
     const mondayCheckbox = page.getByRole('checkbox', { name: 'Monday' });
     await mondayCheckbox.check();
     await expect(mondayCheckbox).toBeChecked();
     await mondayCheckbox.screenshot({ path: 'Screenshots/checkbox.jpeg' });
+})
 
-    // Select Male radio button
+test('TC4: Verify Male radio button can be selected', async ({ page }) => {
     const maleRadio = page.getByRole('radio', { name: 'Male', exact: true });
     await maleRadio.click();
     await expect(maleRadio).toBeChecked();
+})
 
-    // Verify Home text is visible
+test('TC5: Verify Home text is visible on page', async ({ page }) => {
     const homeText = page.getByText('Home').first();
     await expect(homeText).toBeVisible();
     console.log(await homeText.textContent());
+})
 
-    // Fill phone number
+test('TC6: Verify phone number can be entered in input field', async ({ page }) => {
     const phoneInput = page.getByPlaceholder('Enter Phone');
     await phoneInput.fill('9916910404');
     await expect(phoneInput).toHaveValue('9916910404');
+})
 
-    // Click and verify dynamic button state change
+test('TC7: Verify dynamic button state changes when clicked', async ({ page }) => {
     const dynamicBtn = page.locator("//button[@onclick='toggleButton(this)']");
     await dynamicBtn.click();
     await expect(dynamicBtn).toHaveText("STOP");
     console.log(await dynamicBtn.textContent());
+})
 
-    // Setup dialog handling and click alert button
+test('TC8: Verify alert button is enabled and can be clicked', async ({ page }) => {
     acceptAllDialogs(page);
     const alertBtn = page.locator('#alertBtn');
     await expect(alertBtn).toBeEnabled();
     await alertBtn.click();
+})
 
-    // Click confirm button
+test('TC9: Verify confirm button is enabled and can be clicked', async ({ page }) => {
+    acceptAllDialogs(page);
     const confirmBtn = page.locator("#confirmBtn");
     await expect(confirmBtn).toBeEnabled();
     await confirmBtn.click();
+})
 
-    // Handle New Tab
+test('TC10: Verify New Tab button opens a new page', async ({ browser, page }) => {
+    const context = page.context();
     const newwindow = page.getByRole('button', { name: 'New Tab' });
     await expect(newwindow).toBeVisible();
 
@@ -63,25 +73,36 @@ test('SS1', async ({ browser }) => {
         newwindow.click(),
     ])
     
-    // Verify new page opened
     await expect(newpage).not.toBe(null);
+})
+
+test('TC11: Verify TypeScript link is visible and clickable on new page', async ({ browser, page }) => {
+    const context = page.context();
+    const newwindow = page.getByRole('button', { name: 'New Tab' });
+
+    const [newpage] = await Promise.all([
+        context.waitForEvent('page'),
+        newwindow.click(),
+    ])
     
-    // Click on TypeScript link
     const typescriptLink = newpage.locator("//a[normalize-space()='TypeScript For Playwright & Cypress']");
     await expect(typescriptLink).toBeVisible();
     await typescriptLink.click();
+})
 
-    // Click Popup Windows button
+test('TC12: Verify Popup Windows button is visible and clickable', async ({ page }) => {
     const popupBtn = page.getByRole('button', { name: /Popup Windows/i });
     await expect(popupBtn).toBeVisible();
     await popupBtn.click();
+})
 
-    // Click Point Me button
+test('TC13: Verify Point Me button is visible and clickable', async ({ page }) => {
     const pointBtn = page.getByRole('button', { name: 'Point Me' });
     await expect(pointBtn).toBeVisible();
     await pointBtn.click();
+})
 
-    // Click Laptops link
+test('TC14: Verify Laptops link is visible and clickable', async ({ page }) => {
     const laptopsLink = page.getByRole('link', { name: 'Laptops' });
     await expect(laptopsLink).toBeVisible();
     await laptopsLink.click();
