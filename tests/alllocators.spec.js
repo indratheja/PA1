@@ -84,4 +84,5 @@ test('SS1', async ({ browser }) => {
     // Click Laptops link
     const laptopsLink = page.getByRole('link', { name: 'Laptops' });
     await expect(laptopsLink).toBeVisible();
-    await laptopsLink.click();)
+    await laptopsLink.click();
+});
