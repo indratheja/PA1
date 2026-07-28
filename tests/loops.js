@@ -11,6 +11,7 @@ while(n>0)
 }
 console.log(reverse); */
 
+
 let n1 = 153;
 /* let digitCount = String(n1).length;
 let sum1 =0;
@@ -34,6 +35,19 @@ console.log(sum2);
 
 
 
+let a= {'i': 2, 'j':3, 'k':1,'n':3}
+
+let key = Object.keys(a)
+
+for(let i=0;i<key.length;i++)
+{
+    console.log(key[i], a[key[i]]);
+    if(a[key[i]]===1)
+    {
+        console.log(key[i]);
+        break;
+    }
+}
 
 
 
